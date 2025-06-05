@@ -1,0 +1,241 @@
+/* Reset a základné nastavenia */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  color: #000; /* Čierny text */
+}
+
+/* Herná obrazovka */
+#game-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('imgs/Cartoon_green_texture_grass.jpg'); /* Nahraď cestou k tvojmu obrázku */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Horné menu */
+#top-menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2); /* Polopriehľadné pozadie pre lepšiu čitateľnosť */
+}
+
+/* Ľavá časť menu */
+.menu-left {
+  display: flex;
+  align-items: center;
+}
+
+.poop-counter, #carrying-indicator {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.poop-counter img, #carrying-indicator img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+/* Stredná časť menu */
+.menu-center {
+  position: relative;
+  top: 15px; /* Posunutie nadol kvôli výrezu na mobiloch */
+  display: flex;
+  align-items: center;
+}
+
+.timer img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+/* Pravá časť menu */
+.menu-right {
+  display: flex;
+  align-items: center;
+}
+
+#pause-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#pause-button img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Skryté prvky */
+.hidden {
+  display: none;
+}
+
+/* herne prvky */
+
+#dog {
+  position: absolute;
+  left: 40%;
+  top: 60%;
+  width: 164px;
+  height: 136px;
+  background-image: url('imgs/combined_spritesheet.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 1312px 1224px;
+  /* takto zmensime psika o polovicu */
+  transform: translate(-50%, -50%) scale(0.5);
+  will-change: background-position;
+}
+
+/* ClassName pre pohyb psa */
+.dog-walk-up {
+    animation: dogWalkUp 0.8s steps(8) infinite;
+}
+
+.dog-walk-up-right {
+  animation: dogWalkUpRight 0.8s steps(8) infinite;
+  background-position: 0 0;
+}
+
+.dog-walk-up-left {
+  animation: dogWalkUpLeft 0.8s steps(8) infinite;
+  background-position: 0 -136px;
+}
+
+.dog-walk-up {
+  animation: dogWalkUp 0.8s steps(8) infinite;
+  background-position: 0 -272px;
+}
+
+.dog-walk-right {
+  animation: dogWalkRight 0.8s steps(8) infinite;
+  background-position: 0 -408px;
+}
+
+.dog-walk-left {
+  animation: dogWalkLeft 0.8s steps(8) infinite;
+  background-position: 0 -544px;
+}
+
+.dog-walk-down-right {
+  animation: dogWalkDownRight 0.8s steps(8) infinite;
+  background-position: 0 -680px;
+}
+
+.dog-walk-down-left {
+  animation: dogWalkDownLeft 0.8s steps(8) infinite;
+  background-position: 0 -816px;
+}
+
+.dog-walk-down {
+  animation: dogWalkDown 0.8s steps(8) infinite;
+  background-position: 0 -952px;
+}
+
+.dog-sit {
+  animation: dogSit 0.8s steps(8) infinite;
+  background-position: 0 -1088px;
+}
+
+
+/* Animacie pre pohyby psa */
+
+@keyframes dogWalkUpRight {
+  from { background-position: 0    0; }
+  to   { background-position: -1312px    0; }
+}
+
+@keyframes dogWalkUpLeft {
+  from { background-position: 0   -136px; }
+  to   { background-position: -1312px  -136px; }
+}
+
+@keyframes dogWalkUp {
+  from { background-position: 0   -272px; }
+  to   { background-position: -1312px  -272px; }
+}
+
+@keyframes dogWalkRight {
+  from { background-position: 0   -408px; }
+  to   { background-position: -1312px  -408px; }
+}
+
+@keyframes dogWalkLeft {
+  from { background-position: 0   -544px; }
+  to   { background-position: -1312px  -544px; }
+}
+
+@keyframes dogWalkDownRight {
+  from { background-position: 0   -680px; }
+  to   { background-position: -1312px  -680px; }
+}
+
+@keyframes dogWalkDownLeft {
+  from { background-position: 0   -816px; }
+  to   { background-position: -1312px  -816px; }
+}
+
+@keyframes dogWalkDown {
+  from { background-position: 0   -952px; }
+  to   { background-position: -1312px  -952px; }
+}
+
+@keyframes dogSit {
+  from { background-position: 0  -1088px; }
+  to   { background-position: -1312px -1088px; }
+}
+
+/* Kôš */
+#trash-bin {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  background-image: url('imgs/—Pngtree—comic\ style\ gray\ trash\ can_5962306.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.poop {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  width: 25px;
+  height: 25px;
+  background-image: url('imgs/poop.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*Panáčik */
+#player {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  width: 68px; /* uprav podľa veľkosti jedného frame */
+  height: 126px;
+  background-image: url('imgs/down1.png');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto; /* necháme to ako originál */
+}
+
